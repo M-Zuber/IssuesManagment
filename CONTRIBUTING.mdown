@@ -1,0 +1,67 @@
+#Contribution Guide for [IssuesManagment](https://github.com/M-Zuber/IssuesManagment)
+
+## Table of Contents
+- [Coding Guidelines](#coding-guidlines)
+- [Repository Setup](#repository-setup)
+- [Contributing](#contributing)
+    - [General](#general)
+    - [Issues](#issues)
+    - [Pull Requests](#pull-requests)
+    - [Features](#features)
+    - [Refactoring](#refactoring)
+- [Areas of Focus](#areas-of-focus)
+
+### Coding Guidelines
+
+- [Microsoft Guidelines for C#](https://msdn.microsoft.com/en-us/library/ff926074.aspx).
+- Use `LINQ Extension Methods` over `query syntax` when possible.
+ 
+ ```c#
+ var result = list.Where(y => y.x); //Use this
+ result = from y in z // Not this
+		  where y.x
+ 		  select y;
+ ```
+ - Indentation of `Fluent` method calls that get too long for comfortable reading should be indented *before* the dot.
+ - Use `XML` style comments on `functions`, ``properties`, ect.
+ - Take the space to write fully informative variable names.
+ 	- Exception: if it is a temporary variable in a small scope.
+ - __CTRl + K + D__ (auto formating).
+ - Remove and sort `usings`.
+
+###Repository Setup
+####Branches
+- `Main`: The stable branch that releases are based from.
+- `Dev`: The staging branch 
+- Feature branches: Each __main__ feature gets its own branch which is merged into `Dev` and then `Main`
+
+### Contributing
+#### General
+- Work should be `PR'ed` to the appropiate feature branch. If none exist then to the `Dev` branch.
+	- If the `PR` is itself a big feature/ contains high impact code:
+	- Open an issue.
+	- Once branch is created, `PR` to the new branch
+
+#### Issues
+See the [Waffle Board](https://waffle.io/M-Zuber/IssuesManagment) to get an idea of what issues are available.
+
+#### Pull Requests
+- Each `PR` should be connected to an issue - even if it doesn't close it.
+  - It is okay to open the `issue` and `pull request` at the same time.
+
+#### Features
+In order to suggest a feature follow the following procedure:
+- Open an issue which should contain the following elements:
+  - A description.
+  - Reasoning for adding the feature.
+  - Screenshot/code example where applicable.
+  - __Extra Credit__: Estimation of impact on code base.
+- Discuss the feature in the issue.
+- Once it is ready, the issue will have the `Ready` label applied.
+- Test your code.
+- Keep commits small and with meaningful (or funny) commit messages.
+- Open `Pull Request`.
+- Enjoy the new feature.
+
+#### Refactoring
+Treat refactoring as you would a feature.
