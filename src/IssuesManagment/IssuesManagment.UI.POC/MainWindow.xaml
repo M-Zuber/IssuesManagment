@@ -1,0 +1,24 @@
+﻿<Window x:Class="IssuesManagment.UI.POC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="520">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Left" Width="206">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Label Width="105">User Name:</Label>
+                <TextBox Name="userName" Width="100"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Label Width="105">Repository Name:</Label>
+                <TextBox Name="repoName" Width="100" ></TextBox>
+            </StackPanel>
+
+            <Button x:Name="ViewRepositories" Click="ViewRepositories_Click" HorizontalAlignment="Center">
+                View Repositories
+            </Button>
+        </StackPanel>
+        <ScrollViewer DockPanel.Dock="Right">
+            <StackPanel x:Name="grid" CanVerticallyScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

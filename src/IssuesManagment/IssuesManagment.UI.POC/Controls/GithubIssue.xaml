@@ -1,0 +1,16 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Octokit="clr-namespace:Octokit;assembly=Octokit" x:Class="IssuesManagment.UI.POC.Controls.GithubIssue" 
+             mc:Ignorable="d" 
+             d:DesignHeight="147" d:DesignWidth="295" Background="#FFECF3E5" BorderBrush="#FFD84B4B" BorderThickness="1" Width="Auto" Height="Auto" Margin="0,0,0,2">
+    <UserControl.DataContext>
+        <Octokit:Issue/>
+    </UserControl.DataContext>
+    <StackPanel>
+        <TextBlock x:Name="issueTitle" TextWrapping="Wrap" Text="{Binding Title}" FontWeight="Bold" FontSize="16"/>
+        <TextBlock x:Name="issueBody" TextWrapping="Wrap" Text="{Binding Body}"/>
+    </StackPanel>
+</UserControl>
