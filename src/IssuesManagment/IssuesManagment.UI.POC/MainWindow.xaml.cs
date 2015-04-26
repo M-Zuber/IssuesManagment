@@ -26,7 +26,7 @@ namespace IssuesManagment.UI.POC
             InitializeComponent();
         }
 
-        private async void ViewRepositories_Click(object sender, RoutedEventArgs e)
+        private async void ViewIssues_Click(object sender, RoutedEventArgs e)
         {
             grid.Children.Clear();
             var apiClient = new Octokit.GitHubClient(new Octokit.ProductHeaderValue("Issue-Managment"));
