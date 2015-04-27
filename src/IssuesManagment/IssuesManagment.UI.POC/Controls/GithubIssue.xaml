@@ -21,9 +21,8 @@
         <TextBlock x:Name="issueBody" TextWrapping="Wrap" Text="{Binding Body}" Margin="2"/>
         <ListBox ItemsSource="{Binding Labels}">
             <ListBox.ItemTemplate>
-            <DataTemplate DataType="Octokit:Label">
-                    <TextBlock Text="{Binding Name}" Background="{Binding Color, Converter={StaticResource stringToBrushConverter}}" Foreground="White" Padding="2">
-                    </TextBlock>
+                <DataTemplate DataType="Octokit:Label">
+                    <TextBlock Text="{Binding Name}" Background="{Binding Color, Converter={StaticResource stringToBrushConverter}}" Foreground="White" Padding="2" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

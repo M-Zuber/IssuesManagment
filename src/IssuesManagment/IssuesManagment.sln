@@ -5,6 +5,12 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssuesManagment.UI.POC", "IssuesManagment.UI.POC\IssuesManagment.UI.POC.csproj", "{0D96F0E4-4CEF-4A15-88F5-1C1417CAA513}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specs", "Specs", "{429DF427-BE6B-4C04-811B-609C3AE3168D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueManagment.Specs", "Specs\IssueManagment.Specs\IssueManagment.Specs.csproj", "{756E990F-E208-403E-A5B6-91D5E91FD91D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueManagment.Models", "IssueManagment.Models\IssueManagment.Models.csproj", "{08FAAA5A-DC5E-45AE-B6EA-B249357E2699}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +21,19 @@ Global
 		{0D96F0E4-4CEF-4A15-88F5-1C1417CAA513}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D96F0E4-4CEF-4A15-88F5-1C1417CAA513}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D96F0E4-4CEF-4A15-88F5-1C1417CAA513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{756E990F-E208-403E-A5B6-91D5E91FD91D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{756E990F-E208-403E-A5B6-91D5E91FD91D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{756E990F-E208-403E-A5B6-91D5E91FD91D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{756E990F-E208-403E-A5B6-91D5E91FD91D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08FAAA5A-DC5E-45AE-B6EA-B249357E2699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08FAAA5A-DC5E-45AE-B6EA-B249357E2699}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08FAAA5A-DC5E-45AE-B6EA-B249357E2699}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08FAAA5A-DC5E-45AE-B6EA-B249357E2699}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{756E990F-E208-403E-A5B6-91D5E91FD91D} = {429DF427-BE6B-4C04-811B-609C3AE3168D}
 	EndGlobalSection
 EndGlobal
