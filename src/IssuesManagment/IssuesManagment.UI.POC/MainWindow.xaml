@@ -6,11 +6,11 @@
         <StackPanel DockPanel.Dock="Left" Width="206" Margin="0,5,0,0">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Width="105">User Name:</Label>
-                <TextBox Name="userName" Width="100"/>
+                <TextBox Name="userName" Width="100" Text="m-zuber"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Width="105">Repository Name:</Label>
-                <TextBox Name="repoName" Width="100" ></TextBox>
+                <TextBox Name="repoName" Width="100" Text="myhome" ></TextBox>
             </StackPanel>
 
             <Button x:Name="ViewIssues" Click="ViewIssues_Click" HorizontalAlignment="Center" Content="View Issues"/>
