@@ -4,13 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:IssuesManagment.UI.POC.Utils"
              xmlns:Octokit="clr-namespace:Octokit;assembly=Octokit" x:Class="IssuesManagment.UI.POC.Controls.GithubIssue" 
+             xmlns:models="clr-namespace:IssueManagment"
              mc:Ignorable="d" 
              d:DesignHeight="147" d:DesignWidth="295" BorderBrush="#FFD84B4B" BorderThickness="1" Width="Auto" Height="Auto" Margin="0,0,0,2">
     <UserControl.Resources>
         <local:StringToBrushConverter x:Key="stringToBrushConverter"/>
     </UserControl.Resources>
     <UserControl.DataContext>
-        <Octokit:Issue/>
+        <models:IssueWithComments/>
     </UserControl.DataContext>
     <StackPanel>
         <TextBlock>

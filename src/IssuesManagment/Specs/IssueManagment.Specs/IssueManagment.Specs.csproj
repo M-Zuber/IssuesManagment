@@ -59,8 +59,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Helpers\AuthHelper.cs" />
     <Compile Include="Helpers\EnumExtensions.cs" />
-    <Compile Include="Helpers\MockingHelper.cs" />
+    <Compile Include="Helpers\RepoHelper.cs" />
     <Compile Include="Issues Of Repository\GetAllIssuesSteps.cs" />
     <Compile Include="Issues Of Repository\GetAllIssues.feature.cs">
       <AutoGen>True</AutoGen>

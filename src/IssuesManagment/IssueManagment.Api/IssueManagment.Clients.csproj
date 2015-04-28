@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{08FAAA5A-DC5E-45AE-B6EA-B249357E2699}</ProjectGuid>
+    <ProjectGuid>{BA9D521B-D9BB-4EB0-87F2-E562C14F07DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IssueManagment</RootNamespace>
-    <AssemblyName>IssueManagment.Models</AssemblyName>
+    <RootNamespace>IssueManagment.Clients</RootNamespace>
+    <AssemblyName>IssueManagment.Clients</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,11 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IssueWithComments.cs" />
+    <Compile Include="IssueWithCommentsClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IssueManagment.Models\IssueManagment.Models.csproj">
+      <Project>{08faaa5a-dc5e-45ae-b6ea-b249357e2699}</Project>
+      <Name>IssueManagment.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

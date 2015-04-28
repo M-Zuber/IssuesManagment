@@ -19,13 +19,13 @@ namespace IssueManagment.Specs
         [Given(@"An authenticated user")]
         public async Task AnAuthenticatedUser()
         {
-            _githubClient = MockingHelper.GetAuthenticatedClient();
+            _githubClient = AuthHelper.GetAuthenticatedClient();
         }
 
         [Given(@"the repository")]
         public async Task GivenTheRepository(Table table)
         {
-            var repoName = MockingHelper.MakeNameWithTimestamp(table.Rows[0]["reponame"]);
+            var repoName = RepoHelper.MakeNameWithTimestamp(table.Rows[0]["reponame"]);
             _repo = await _githubClient.Repository.Create(new NewRepository(repoName));
             _issuesClient = _githubClient.Issue;
         }
@@ -78,7 +78,7 @@ namespace IssueManagment.Specs
         [AfterScenario]
         private void CleanUp()
         {
-            MockingHelper.DeleteRepo(_repo);
+            RepoHelper.DeleteRepo(_repo);
         }
     }
 }

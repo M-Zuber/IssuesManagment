@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueManagment.Specs", "Spe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueManagment.Models", "IssueManagment.Models\IssueManagment.Models.csproj", "{08FAAA5A-DC5E-45AE-B6EA-B249357E2699}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueManagment.Clients", "IssueManagment.Api\IssueManagment.Clients.csproj", "{BA9D521B-D9BB-4EB0-87F2-E562C14F07DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{08FAAA5A-DC5E-45AE-B6EA-B249357E2699}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08FAAA5A-DC5E-45AE-B6EA-B249357E2699}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08FAAA5A-DC5E-45AE-B6EA-B249357E2699}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA9D521B-D9BB-4EB0-87F2-E562C14F07DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA9D521B-D9BB-4EB0-87F2-E562C14F07DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA9D521B-D9BB-4EB0-87F2-E562C14F07DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA9D521B-D9BB-4EB0-87F2-E562C14F07DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

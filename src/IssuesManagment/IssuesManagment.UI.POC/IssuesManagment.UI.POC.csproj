@@ -116,6 +116,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IssueManagment.Api\IssueManagment.Clients.csproj">
+      <Project>{ba9d521b-d9bb-4eb0-87f2-e562c14f07dd}</Project>
+      <Name>IssueManagment.Clients</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IssueManagment.Models\IssueManagment.Models.csproj">
+      <Project>{08faaa5a-dc5e-45ae-b6ea-b249357e2699}</Project>
+      <Name>IssueManagment.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
