@@ -45,6 +45,10 @@
       <HintPath>..\..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="UnconstrainedMelody, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\UnconstrainedMelody.0.2.1\lib\UnconstrainedMelody.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">

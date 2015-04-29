@@ -8,12 +8,12 @@ namespace IssueManagment.Specs.Helpers
 {
     public static class EnumExtensions
     {
-        public static T Parse<T>(string value, bool ignoreCase = false)
+        public static T Parse<T>(string value, bool ignoreCase = false) where T : struct, IConvertible
         {
             Type type = typeof(T);
             if (!type.IsEnum)
             {
-                throw new ArgumentException("The generic argument must be an enum.");
+                throw new NotSupportedException("The generic argument must be an enum.");
             }
 
             return (T)Enum.Parse(type, value, ignoreCase);
