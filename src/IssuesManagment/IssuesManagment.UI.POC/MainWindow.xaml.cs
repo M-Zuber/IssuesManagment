@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IssuesManagment.Clients;
 using IssuesManagment.UI.POC.Controls;
 
 namespace IssuesManagment.UI.POC
@@ -30,10 +31,10 @@ namespace IssuesManagment.UI.POC
         {
             grid.Children.Clear();
             var apiClient = new Octokit.GitHubClient(new Octokit.ProductHeaderValue("Issue-Managment"));
-            
             if (!string.IsNullOrWhiteSpace(userName.Text) && !string.IsNullOrWhiteSpace(repoName.Text))
             {
-                var issues = await apiClient.Issue.GetAllForRepository(userName.Text, repoName.Text);
+                var issuesClient = new IssuesWithCommentsClient(new Octokit.ApiConnection(apiClient.Connection));
+                var issues = await issuesClient.GetAllForRepositoryWithComments(userName.Text, repoName.Text);
 
                 GithubIssue x;
 

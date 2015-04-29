@@ -7,8 +7,8 @@
     <ProjectGuid>{BA9D521B-D9BB-4EB0-87F2-E562C14F07DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IssueManagment.Clients</RootNamespace>
-    <AssemblyName>IssueManagment.Clients</AssemblyName>
+    <RootNamespace>IssuesManagment.Clients</RootNamespace>
+    <AssemblyName>IssuesManagment.Clients</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -45,16 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IssueWithCommentsClient.cs" />
+    <Compile Include="IssuesWithCommentsClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IssueManagment.Models\IssueManagment.Models.csproj">
+    <ProjectReference Include="..\IssueManagment.Models\IssuesManagment.Models.csproj">
       <Project>{08faaa5a-dc5e-45ae-b6ea-b249357e2699}</Project>
-      <Name>IssueManagment.Models</Name>
+      <Name>IssuesManagment.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -117,14 +117,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IssueManagment.Api\IssueManagment.Clients.csproj">
+    <ProjectReference Include="..\IssueManagment.Api\IssuesManagment.Clients.csproj">
       <Project>{ba9d521b-d9bb-4eb0-87f2-e562c14f07dd}</Project>
-      <Name>IssueManagment.Clients</Name>
+      <Name>IssuesManagment.Clients</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IssueManagment.Models\IssueManagment.Models.csproj">
+    <ProjectReference Include="..\IssueManagment.Models\IssuesManagment.Models.csproj">
       <Project>{08faaa5a-dc5e-45ae-b6ea-b249357e2699}</Project>
-      <Name>IssueManagment.Models</Name>
+      <Name>IssuesManagment.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,7 +8,7 @@ namespace IssueManagment.Specs.Helpers
 {
     public static class EnumExtensions
     {
-        public static T Parse<T>(string value, bool ignoreCase = false) where T : struct, IConvertible
+        public static T Parse<T>(this string value, bool ignoreCase = false) where T : struct, IConvertible
         {
             Type type = typeof(T);
             if (!type.IsEnum)

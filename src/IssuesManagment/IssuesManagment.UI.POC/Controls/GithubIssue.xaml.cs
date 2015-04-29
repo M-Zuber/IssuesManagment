@@ -22,7 +22,7 @@ namespace IssuesManagment.UI.POC.Controls
     /// </summary>
     public partial class GithubIssue : UserControl
     {
-        public GithubIssue(Issue issue)
+        public GithubIssue(IssueWithComments issue)
         {
             InitializeComponent();
             this.DataContext = issue;

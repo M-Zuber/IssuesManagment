@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:IssuesManagment.UI.POC.Utils"
              xmlns:Octokit="clr-namespace:Octokit;assembly=Octokit" x:Class="IssuesManagment.UI.POC.Controls.GithubIssue" 
-             xmlns:models="clr-namespace:IssueManagment"
+             xmlns:models="clr-namespace:IssuesManagment;assembly=IssuesManagment.Models"
              mc:Ignorable="d" 
              d:DesignHeight="147" d:DesignWidth="295" BorderBrush="#FFD84B4B" BorderThickness="1" Width="Auto" Height="Auto" Margin="0,0,0,2">
     <UserControl.Resources>
@@ -15,15 +15,22 @@
     </UserControl.DataContext>
     <StackPanel>
         <TextBlock>
-            <Hyperlink NavigateUri="{Binding HtmlUrl}" RequestNavigate="Hyperlink_RequestNavigate">
-                <TextBlock x:Name="issueTitle" TextWrapping="Wrap" Text="{Binding Title}" FontWeight="Bold" FontSize="16" />
+            <Hyperlink NavigateUri="{Binding Issue.HtmlUrl}" RequestNavigate="Hyperlink_RequestNavigate">
+                <TextBlock x:Name="issueTitle" TextWrapping="Wrap" Text="{Binding Issue.Title}" FontWeight="Bold" FontSize="16" />
             </Hyperlink>
         </TextBlock>
-        <TextBlock x:Name="issueBody" TextWrapping="Wrap" Text="{Binding Body}" Margin="2"/>
-        <ListBox ItemsSource="{Binding Labels}">
+        <TextBlock x:Name="issueBody" TextWrapping="Wrap" Text="{Binding Issue.Body}" Margin="2"/>
+        <ListBox ItemsSource="{Binding Issue.Labels}">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="Octokit:Label">
                     <TextBlock Text="{Binding Name}" Background="{Binding Color, Converter={StaticResource stringToBrushConverter}}" Foreground="White" Padding="2" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox ItemsSource="{Binding Comments}">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="models:IssueWithComments">
+                    <TextBlock Text="{Binding Body}" Padding="2" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Octokit;
-namespace IssueManagment.Clients
+namespace IssuesManagment.Clients
 {
-    public class IssueWithCommentsClient : IssuesClient
+    public class IssuesWithCommentsClient : IssuesClient
     {
-        public IssueWithCommentsClient(IApiConnection connection)
+        public IssuesWithCommentsClient(IApiConnection connection)
             : base(connection)
         {
 

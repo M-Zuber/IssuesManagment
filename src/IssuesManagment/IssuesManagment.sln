@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specs", "Specs", "{429DF427
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueManagment.Specs", "Specs\IssueManagment.Specs\IssueManagment.Specs.csproj", "{756E990F-E208-403E-A5B6-91D5E91FD91D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueManagment.Models", "IssueManagment.Models\IssueManagment.Models.csproj", "{08FAAA5A-DC5E-45AE-B6EA-B249357E2699}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssuesManagment.Models", "IssueManagment.Models\IssuesManagment.Models.csproj", "{08FAAA5A-DC5E-45AE-B6EA-B249357E2699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueManagment.Clients", "IssueManagment.Api\IssueManagment.Clients.csproj", "{BA9D521B-D9BB-4EB0-87F2-E562C14F07DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssuesManagment.Clients", "IssueManagment.Api\IssuesManagment.Clients.csproj", "{BA9D521B-D9BB-4EB0-87F2-E562C14F07DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

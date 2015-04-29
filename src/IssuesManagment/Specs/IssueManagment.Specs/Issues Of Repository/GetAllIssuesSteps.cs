@@ -40,7 +40,7 @@ namespace IssueManagment.Specs
             {
                 newIssue = new NewIssue(item["title"]) { Body = item["body"] };
                 var issue = await _issuesClient.Create(owner, _repo.Name, newIssue);
-                await _issuesClient.Update(owner, _repo.Name, issue.Number, new IssueUpdate { State = EnumExtensions.Parse<ItemState>(item["state"], true) });
+                await _issuesClient.Update(owner, _repo.Name, issue.Number, new IssueUpdate { State = item["state"].Parse<ItemState>(true)});
             }
         }
 

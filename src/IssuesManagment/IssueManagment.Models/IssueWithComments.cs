@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Octokit;
 
-namespace IssueManagment
+namespace IssuesManagment
 {
     public class IssueWithComments
     {
