@@ -15,8 +15,8 @@
 
             <Button x:Name="ViewIssues" Click="ViewIssues_Click" HorizontalAlignment="Center" Content="View Issues"/>
         </StackPanel>
-        <ScrollViewer DockPanel.Dock="Right">
-            <StackPanel x:Name="grid" CanVerticallyScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <ScrollViewer DockPanel.Dock="Right" CanContentScroll="True" >
+            <StackPanel x:Name="grid" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         </ScrollViewer>
     </DockPanel>
 </Window>

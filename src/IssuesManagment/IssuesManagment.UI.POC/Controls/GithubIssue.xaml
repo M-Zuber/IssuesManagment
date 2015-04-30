@@ -9,6 +9,7 @@
              d:DesignHeight="147" d:DesignWidth="295" BorderBrush="#FFD84B4B" BorderThickness="1" Width="Auto" Height="Auto" Margin="0,0,0,2">
     <UserControl.Resources>
         <local:StringToBrushConverter x:Key="stringToBrushConverter"/>
+        <local:IntegerToVisiblityConverter x:Key="intToVisiblityConverter"/>
     </UserControl.Resources>
     <UserControl.DataContext>
         <models:IssueWithComments/>
@@ -19,20 +20,22 @@
                 <TextBlock x:Name="issueTitle" TextWrapping="Wrap" Text="{Binding Issue.Title}" FontWeight="Bold" FontSize="16" />
             </Hyperlink>
         </TextBlock>
-        <TextBlock x:Name="issueBody" TextWrapping="Wrap" Text="{Binding Issue.Body}" Margin="2"/>
-        <ListBox ItemsSource="{Binding Issue.Labels}">
-            <ListBox.ItemTemplate>
+        <ItemsControl ItemsSource="{Binding Issue.Labels}" HorizontalAlignment="Left">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate >
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="Octokit:Label">
-                    <TextBlock Text="{Binding Name}" Background="{Binding Color, Converter={StaticResource stringToBrushConverter}}" Foreground="White" Padding="2" />
+                    <TextBlock Text="{Binding Name}" Background="{Binding Color, Converter={StaticResource stringToBrushConverter}}" Foreground="White" Padding="2" MaxWidth="100" Margin="0,0,1,0" />
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox ItemsSource="{Binding Comments}">
-            <ListBox.ItemTemplate>
-                <DataTemplate DataType="models:IssueWithComments">
-                    <TextBlock Text="{Binding Body}" Padding="2" />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <TextBlock x:Name="issueBody" TextWrapping="Wrap" Text="{Binding Issue.Body}" Margin="2"/>
+        <Expander  Visibility="{Binding Comments.Count, Converter={StaticResource intToVisiblityConverter}}" Header="Comments">
+            <ItemsControl Name="comments" ItemsSource="{Binding Comments}">
+            </ItemsControl>
+        </Expander>
     </StackPanel>
 </UserControl>

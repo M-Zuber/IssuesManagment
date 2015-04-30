@@ -26,6 +26,13 @@ namespace IssuesManagment.UI.POC.Controls
         {
             InitializeComponent();
             this.DataContext = issue;
+
+            var commentDisplayers = new List<GithubIssueComment>();
+            foreach (var comment in issue.Comments)
+            {
+                commentDisplayers.Add(new GithubIssueComment(comment));
+            }
+            comments.ItemsSource = commentDisplayers;
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
