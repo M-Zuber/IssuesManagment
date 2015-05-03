@@ -27,11 +27,8 @@ namespace IssuesManagment.UI.POC.Controls
             InitializeComponent();
             this.DataContext = issue;
 
-            var commentDisplayers = new List<GithubIssueComment>();
-            foreach (var comment in issue.Comments)
-            {
-                commentDisplayers.Add(new GithubIssueComment(comment));
-            }
+            var commentDisplayers = issue.Comments.Select(comment => new GithubIssueComment(comment)).ToList();
+
             comments.ItemsSource = commentDisplayers;
         }
 

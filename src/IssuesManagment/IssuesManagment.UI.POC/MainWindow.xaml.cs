@@ -37,7 +37,6 @@ namespace IssuesManagment.UI.POC
                 var issues = await issuesClient.GetAllForRepositoryWithComments(userName.Text, repoName.Text);
 
                 GithubIssue x;
-
                 foreach (var item in issues)
                 {
                     x = new GithubIssue(item);
