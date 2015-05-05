@@ -125,9 +125,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IssueManagment.Api\IssuesManagment.Clients.csproj">
+    <ProjectReference Include="..\IssueManagment.Api\IssuesManagment.ClientExtensions.csproj">
       <Project>{ba9d521b-d9bb-4eb0-87f2-e562c14f07dd}</Project>
-      <Name>IssuesManagment.Clients</Name>
+      <Name>IssuesManagment.ClientExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\IssueManagment.Models\IssuesManagment.Models.csproj">
       <Project>{08faaa5a-dc5e-45ae-b6ea-b249357e2699}</Project>

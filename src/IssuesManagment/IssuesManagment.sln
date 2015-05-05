@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueManagment.Specs", "Spe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssuesManagment.Models", "IssueManagment.Models\IssuesManagment.Models.csproj", "{08FAAA5A-DC5E-45AE-B6EA-B249357E2699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssuesManagment.Clients", "IssueManagment.Api\IssuesManagment.Clients.csproj", "{BA9D521B-D9BB-4EB0-87F2-E562C14F07DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssuesManagment.ClientExtensions", "IssueManagment.Api\IssuesManagment.ClientExtensions.csproj", "{BA9D521B-D9BB-4EB0-87F2-E562C14F07DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

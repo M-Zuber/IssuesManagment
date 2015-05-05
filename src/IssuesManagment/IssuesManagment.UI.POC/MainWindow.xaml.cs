@@ -33,8 +33,7 @@ namespace IssuesManagment.UI.POC
             var apiClient = new Octokit.GitHubClient(new Octokit.ProductHeaderValue("Issue-Managment"));
             if (!string.IsNullOrWhiteSpace(userName.Text) && !string.IsNullOrWhiteSpace(repoName.Text))
             {
-                var issuesClient = new IssuesWithCommentsClient(new Octokit.ApiConnection(apiClient.Connection));
-                var issues = await issuesClient.GetAllForRepositoryWithComments(userName.Text, repoName.Text);
+                var issues = await apiClient.Issue.GetAllForRepositoryWithComments(userName.Text, repoName.Text);
 
                 GithubIssue x;
                 foreach (var item in issues)
