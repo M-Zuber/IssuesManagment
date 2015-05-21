@@ -16,11 +16,11 @@
     </UserControl.DataContext>
     <StackPanel>
         <TextBlock>
-            <Hyperlink NavigateUri="{Binding Issue.HtmlUrl}" RequestNavigate="Hyperlink_RequestNavigate">
-                <TextBlock x:Name="issueTitle" TextWrapping="Wrap" Text="{Binding Issue.Title}" FontWeight="Bold" FontSize="16" />
+            <Hyperlink NavigateUri="{Binding HtmlUrl}" RequestNavigate="Hyperlink_RequestNavigate">
+                <TextBlock x:Name="issueTitle" TextWrapping="Wrap" Text="{Binding Title}" FontWeight="Bold" FontSize="16" />
             </Hyperlink>
         </TextBlock>
-        <ItemsControl ItemsSource="{Binding Issue.Labels}" HorizontalAlignment="Left">
+        <ItemsControl ItemsSource="{Binding Labels}" HorizontalAlignment="Left">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate >
                     <StackPanel Orientation="Horizontal"/>
@@ -32,7 +32,7 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <TextBlock x:Name="issueBody" TextWrapping="Wrap" Text="{Binding Issue.Body}" Margin="2"/>
+        <TextBlock x:Name="issueBody" TextWrapping="Wrap" Text="{Binding Body}" Margin="2"/>
         <Expander  Visibility="{Binding Comments.Count, Converter={StaticResource intToVisiblityConverter}}" Header="Comments">
             <ItemsControl Name="comments" ItemsSource="{Binding Comments}">
             </ItemsControl>

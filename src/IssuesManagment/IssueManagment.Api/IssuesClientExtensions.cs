@@ -13,7 +13,7 @@ namespace IssuesManagment.Clients
             var issue = await client.Get(owner, name, number);
             var comments = await client.Comment.GetAllForIssue(owner, name, issue.Number);
 
-            return new IssueWithComments { Issue = issue, Comments = comments };
+            return IssueWithComments.FromIssue(issue, comments);
         }
 
         public static async Task<IReadOnlyList<IssueWithComments>> GetAllForCurrentWithComments(this IIssuesClient client)
@@ -30,7 +30,7 @@ namespace IssuesManagment.Clients
                 var repo = group.Key.Segments[3];
                 foreach (var i in group)
                 {
-                    all.Add(new IssueWithComments { Issue = i, Comments = await client.Comment.GetAllForIssue(owner, repo, i.Number) });
+                    all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, repo, i.Number)));
                 }
             }
 
@@ -50,7 +50,7 @@ namespace IssuesManagment.Clients
                 var repo = group.Key.Segments[3];
                 foreach (var i in group)
                 {
-                    all.Add(new IssueWithComments { Issue = i, Comments = await client.Comment.GetAllForIssue(owner, repo, i.Number) });
+                    all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, repo, i.Number)));
                 }
             }
 
@@ -70,7 +70,7 @@ namespace IssuesManagment.Clients
                 var repo = group.Key.Segments[3];
                 foreach (var i in group)
                 {
-                    all.Add(new IssueWithComments { Issue = i, Comments = await client.Comment.GetAllForIssue(owner, repo, i.Number) });
+                    all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, repo, i.Number)));
                 }
             }
 
@@ -90,7 +90,7 @@ namespace IssuesManagment.Clients
                 var repo = group.Key.Segments[3];
                 foreach (var i in group)
                 {
-                    all.Add(new IssueWithComments { Issue = i, Comments = await client.Comment.GetAllForIssue(owner, repo, i.Number) });
+                    all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, repo, i.Number)));
                 }
             }
 
@@ -110,14 +110,14 @@ namespace IssuesManagment.Clients
                 var repo = group.Key.Segments[3];
                 foreach (var i in group)
                 {
-                    all.Add(new IssueWithComments { Issue = i, Comments = await client.Comment.GetAllForIssue(owner, repo, i.Number) });
+                    all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, repo, i.Number)));
                 }
             }
 
             return all.AsReadOnly();
         }
 
-        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForOwnedAndMemberRepositoriesWithComments(this IIssuesClient client,IssueRequest request)
+        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForOwnedAndMemberRepositoriesWithComments(this IIssuesClient client, IssueRequest request)
         {
             var issues = await client.GetAllForOwnedAndMemberRepositories(request);
             List<IssueWithComments> all = new List<IssueWithComments>();
@@ -130,14 +130,14 @@ namespace IssuesManagment.Clients
                 var repo = group.Key.Segments[3];
                 foreach (var i in group)
                 {
-                    all.Add(new IssueWithComments { Issue = i, Comments = await client.Comment.GetAllForIssue(owner, repo, i.Number) });
+                    all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, repo, i.Number)));
                 }
             }
 
             return all.AsReadOnly();
         }
 
-        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForRepositoryWithComments(this IIssuesClient client,string owner, string name)
+        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForRepositoryWithComments(this IIssuesClient client, string owner, string name)
         {
             var issues = await client.GetAllForRepository(owner, name);
             List<IssueWithComments> all = new List<IssueWithComments>();
@@ -146,13 +146,13 @@ namespace IssuesManagment.Clients
 
             foreach (var i in issues)
             {
-                all.Add(new IssueWithComments { Issue = i, Comments = await client.Comment.GetAllForIssue(owner, name, i.Number) });
+                all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, name, i.Number)));
             }
 
             return all.AsReadOnly();
         }
 
-        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForRepositoryWithComments(this IIssuesClient client,string owner, string name, RepositoryIssueRequest request)
+        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForRepositoryWithComments(this IIssuesClient client, string owner, string name, RepositoryIssueRequest request)
         {
             var issues = await client.GetAllForRepository(owner, name, request);
             List<IssueWithComments> all = new List<IssueWithComments>();
@@ -161,7 +161,7 @@ namespace IssuesManagment.Clients
 
             foreach (var i in issues)
             {
-                all.Add(new IssueWithComments { Issue = i, Comments = await client.Comment.GetAllForIssue(owner, name, i.Number) });
+                all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, name, i.Number)));
             }
 
             return all.AsReadOnly();
