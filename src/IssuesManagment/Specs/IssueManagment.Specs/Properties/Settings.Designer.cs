@@ -22,53 +22,5 @@ namespace IssueManagment.Specs.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("issues-managment-test")]
-        public string IssuesManagment_GITHUBUSERNAME {
-            get {
-                return ((string)(this["IssuesManagment_GITHUBUSERNAME"]));
-            }
-            set {
-                this["IssuesManagment_GITHUBUSERNAME"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Issues-Managment-Org")]
-        public string IssuesManagment_GITHUBORGANIZATION {
-            get {
-                return ((string)(this["IssuesManagment_GITHUBORGANIZATION"]));
-            }
-            set {
-                this["IssuesManagment_GITHUBORGANIZATION"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string IssuesManagment_OAUTHTOKEN {
-            get {
-                return ((string)(this["IssuesManagment_OAUTHTOKEN"]));
-            }
-            set {
-                this["IssuesManagment_OAUTHTOKEN"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2345jhon")]
-        public string IssuesManagment_GITHUBPASSWORD {
-            get {
-                return ((string)(this["IssuesManagment_GITHUBPASSWORD"]));
-            }
-            set {
-                this["IssuesManagment_GITHUBPASSWORD"] = value;
-            }
-        }
     }
 }

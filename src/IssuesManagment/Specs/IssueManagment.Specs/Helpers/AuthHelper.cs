@@ -11,18 +11,16 @@ namespace IssueManagment.Specs.Helpers
     {
         static readonly Lazy<Credentials> _credentialsThunk = new Lazy<Credentials>(() =>
         {
-            //TODO switch from settings to using Enviroment Variables
-
-            var githubUsername = IssueManagment.Specs.Properties.Settings.Default.IssuesManagment_GITHUBUSERNAME;
+            var githubUsername = Environment.GetEnvironmentVariable("OCTOKIT_GITHUBUSERNAME");
             UserName = githubUsername;
-            Organization = IssueManagment.Specs.Properties.Settings.Default.IssuesManagment_GITHUBORGANIZATION;
+            Organization = Environment.GetEnvironmentVariable("OCTOKIT_GITHUBORGANIZATION");
 
-            var githubToken = IssueManagment.Specs.Properties.Settings.Default.IssuesManagment_OAUTHTOKEN;
+            var githubToken = Environment.GetEnvironmentVariable("OCTOKIT_OAUTHTOKEN");
 
-            if (!string.IsNullOrWhiteSpace(githubToken))
+            if (githubToken != null)
                 return new Credentials(githubToken);
 
-            var githubPassword = IssueManagment.Specs.Properties.Settings.Default.IssuesManagment_GITHUBPASSWORD;
+            var githubPassword = Environment.GetEnvironmentVariable("OCTOKIT_GITHUBPASSWORD");
 
             if (githubUsername == null || githubPassword == null)
                 return null;
