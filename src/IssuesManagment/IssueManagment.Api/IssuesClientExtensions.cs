@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Octokit;
+
 namespace IssuesManagment.Clients
 {
     public static class IssuesClientExtensions
@@ -142,14 +143,12 @@ namespace IssuesManagment.Clients
             var issues = await client.GetAllForRepository(owner, name);
             List<IssueWithComments> all = new List<IssueWithComments>();
 
-            var groupedIssues = issues.GroupBy(i => i.Url);
-
             foreach (var i in issues)
             {
                 all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, name, i.Number)));
             }
 
-            return all.AsReadOnly();
+            return all;
         }
 
         public static async Task<IReadOnlyList<IssueWithComments>> GetAllForRepositoryWithComments(this IIssuesClient client, string owner, string name, RepositoryIssueRequest request)

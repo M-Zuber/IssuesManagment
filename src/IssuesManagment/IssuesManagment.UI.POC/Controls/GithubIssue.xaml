@@ -33,7 +33,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
         <TextBlock x:Name="issueBody" TextWrapping="Wrap" Text="{Binding Body}" Margin="2"/>
-        <Expander  Visibility="{Binding Comments.Count, Converter={StaticResource intToVisiblityConverter}}" Header="Comments">
+        <Expander  Visibility="{Binding Comments, Converter={StaticResource intToVisiblityConverter}}" Header="Comments">
             <ItemsControl Name="comments" ItemsSource="{Binding Comments}">
             </ItemsControl>
         </Expander>
