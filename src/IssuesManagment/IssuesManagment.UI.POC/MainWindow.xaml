@@ -10,7 +10,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                 <Label Width="105">Repository Name:</Label>
-                <TextBox Name="repoName" Width="100" Text="myhome" ></TextBox>
+                <TextBox Name="repoName" Width="100" Text="IssuesManagment" ></TextBox>
             </StackPanel>
 
             <Button x:Name="ViewIssues" Click="ViewIssues_Click" HorizontalAlignment="Center" Content="View Issues"/>
