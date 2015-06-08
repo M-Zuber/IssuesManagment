@@ -12,7 +12,7 @@
         <local:IntegerToVisiblityConverter x:Key="intToVisiblityConverter"/>
     </UserControl.Resources>
     <UserControl.DataContext>
-        <models:IssueWithComments/>
+        <models:IssueEx/>
     </UserControl.DataContext>
     <StackPanel>
         <TextBlock>
