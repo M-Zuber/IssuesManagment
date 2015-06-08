@@ -9,161 +9,67 @@ namespace IssuesManagment.Clients
 {
     public static class IssuesClientExtensions
     {
-        public static async Task<IssueWithComments> GetWithComments(this IIssuesClient client, string owner, string name, int number)
+        public static async Task<IssueEx> GetWithComments(this IIssuesClient client, string owner, string name, int number)
         {
             var issue = await client.Get(owner, name, number);
             var comments = await client.Comment.GetAllForIssue(owner, name, issue.Number);
 
-            return IssueWithComments.FromIssue(issue, comments);
+            return IssueEx.FromIssue(issue, comments);
         }
 
-        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForCurrentWithComments(this IIssuesClient client)
+        public static async Task<IReadOnlyList<IssueEx>> GetAllForCurrentWithComments(this IIssuesClient client)
         {
             var issues = await client.GetAllForCurrent();
 
-            List<IssueWithComments> all = new List<IssueWithComments>();
-
-            var groupedIssues = issues.GroupBy(i => i.Url);
-
-            foreach (var group in groupedIssues)
-            {
-                var owner = group.Key.Segments[2];
-                var repo = group.Key.Segments[3];
-                foreach (var i in group)
-                {
-                    all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, repo, i.Number)));
-                }
-            }
-
-            return all.AsReadOnly();
+            return await Task.WhenAll(issues.Select(async i => IssueEx.FromIssue(i, await client.Comment.GetAllForIssue(i.Url.Segments[2], i.Url.Segments[3], i.Number))));
         }
 
-        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForCurrentWithComments(this IIssuesClient client, IssueRequest request)
+        public static async Task<IReadOnlyList<IssueEx>> GetAllForCurrentWithComments(this IIssuesClient client, IssueRequest request)
         {
             var issues = await client.GetAllForCurrent(request);
-            List<IssueWithComments> all = new List<IssueWithComments>();
 
-            var groupedIssues = issues.GroupBy(i => i.Url);
-
-            foreach (var group in groupedIssues)
-            {
-                var owner = group.Key.Segments[2];
-                var repo = group.Key.Segments[3];
-                foreach (var i in group)
-                {
-                    all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, repo, i.Number)));
-                }
-            }
-
-            return all.AsReadOnly();
+            return await Task.WhenAll(issues.Select(async i => IssueEx.FromIssue(i, await client.Comment.GetAllForIssue(i.Url.Segments[2], i.Url.Segments[3], i.Number))));
         }
 
-        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForOrganizationWithComments(this IIssuesClient client, string organization)
+        public static async Task<IReadOnlyList<IssueEx>> GetAllForOrganizationWithComments(this IIssuesClient client, string organization)
         {
             var issues = await client.GetAllForOrganization(organization);
-            List<IssueWithComments> all = new List<IssueWithComments>();
 
-            var groupedIssues = issues.GroupBy(i => i.Url);
-
-            foreach (var group in groupedIssues)
-            {
-                var owner = group.Key.Segments[2];
-                var repo = group.Key.Segments[3];
-                foreach (var i in group)
-                {
-                    all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, repo, i.Number)));
-                }
-            }
-
-            return all.AsReadOnly();
+            return await Task.WhenAll(issues.Select(async i => IssueEx.FromIssue(i, await client.Comment.GetAllForIssue(i.Url.Segments[2], i.Url.Segments[3], i.Number))));
         }
 
-        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForOrganizationWithComments(this IIssuesClient client, string organization, IssueRequest request)
+        public static async Task<IReadOnlyList<IssueEx>> GetAllForOrganizationWithComments(this IIssuesClient client, string organization, IssueRequest request)
         {
             var issues = await client.GetAllForOrganization(organization, request);
-            List<IssueWithComments> all = new List<IssueWithComments>();
 
-            var groupedIssues = issues.GroupBy(i => i.Url);
-
-            foreach (var group in groupedIssues)
-            {
-                var owner = group.Key.Segments[2];
-                var repo = group.Key.Segments[3];
-                foreach (var i in group)
-                {
-                    all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, repo, i.Number)));
-                }
-            }
-
-            return all.AsReadOnly();
+            return await Task.WhenAll(issues.Select(async i => IssueEx.FromIssue(i, await client.Comment.GetAllForIssue(i.Url.Segments[2], i.Url.Segments[3], i.Number))));
         }
 
-        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForOwnedAndMemberRepositoriesWithComments(this IIssuesClient client)
+        public static async Task<IReadOnlyList<IssueEx>> GetAllForOwnedAndMemberRepositoriesWithComments(this IIssuesClient client)
         {
             var issues = await client.GetAllForOwnedAndMemberRepositories();
-            List<IssueWithComments> all = new List<IssueWithComments>();
 
-            var groupedIssues = issues.GroupBy(i => i.Url);
-
-            foreach (var group in groupedIssues)
-            {
-                var owner = group.Key.Segments[2];
-                var repo = group.Key.Segments[3];
-                foreach (var i in group)
-                {
-                    all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, repo, i.Number)));
-                }
-            }
-
-            return all.AsReadOnly();
+            return await Task.WhenAll(issues.Select(async i => IssueEx.FromIssue(i, await client.Comment.GetAllForIssue(i.Url.Segments[2], i.Url.Segments[3], i.Number))));
         }
 
-        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForOwnedAndMemberRepositoriesWithComments(this IIssuesClient client, IssueRequest request)
+        public static async Task<IReadOnlyList<IssueEx>> GetAllForOwnedAndMemberRepositoriesWithComments(this IIssuesClient client, IssueRequest request)
         {
             var issues = await client.GetAllForOwnedAndMemberRepositories(request);
-            List<IssueWithComments> all = new List<IssueWithComments>();
 
-            var groupedIssues = issues.GroupBy(i => i.Url);
-
-            foreach (var group in groupedIssues)
-            {
-                var owner = group.Key.Segments[2];
-                var repo = group.Key.Segments[3];
-                foreach (var i in group)
-                {
-                    all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, repo, i.Number)));
-                }
-            }
-
-            return all.AsReadOnly();
+            return await Task.WhenAll(issues.Select(async i => IssueEx.FromIssue(i, await client.Comment.GetAllForIssue(i.Url.Segments[2], i.Url.Segments[3], i.Number))));
         }
 
-        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForRepositoryWithComments(this IIssuesClient client, string owner, string name)
+        public static async Task<IReadOnlyList<IssueEx>> GetAllForRepositoryWithComments(this IIssuesClient client, string owner, string name)
         {
             var issues = await client.GetAllForRepository(owner, name);
-            List<IssueWithComments> all = new List<IssueWithComments>();
 
-            foreach (var i in issues)
-            {
-                all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, name, i.Number)));
-            }
-
-            return all;
+            return await Task.WhenAll(issues.Select(async i => IssueEx.FromIssue(i, await client.Comment.GetAllForIssue(owner, name, i.Number))));
         }
-
-        public static async Task<IReadOnlyList<IssueWithComments>> GetAllForRepositoryWithComments(this IIssuesClient client, string owner, string name, RepositoryIssueRequest request)
+        public static async Task<IReadOnlyList<IssueEx>> GetAllForRepositoryWithComments(this IIssuesClient client, string owner, string name, RepositoryIssueRequest request)
         {
             var issues = await client.GetAllForRepository(owner, name, request);
-            List<IssueWithComments> all = new List<IssueWithComments>();
 
-            var groupedIssues = issues.GroupBy(i => i.Url);
-
-            foreach (var i in issues)
-            {
-                all.Add(IssueWithComments.FromIssue(i, await client.Comment.GetAllForIssue(owner, name, i.Number)));
-            }
-
-            return all.AsReadOnly();
+            return await Task.WhenAll(issues.Select(async i => IssueEx.FromIssue(i, await client.Comment.GetAllForIssue(owner, name, i.Number))));
         }
     }
 }
